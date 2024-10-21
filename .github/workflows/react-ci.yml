@@ -27,7 +27,7 @@ jobs:
           npm install
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install --force
 
       - name: Switch to dart-sass
         run: npm install sass
