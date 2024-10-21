@@ -13,24 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install build tools
-        run: sudo apt-get install -y build-essential
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
 
-      - name: Clean up dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
-
       - name: Install dependencies
-        run: npm install --force
-
-      - name: Switch to dart-sass
-        run: npm install sass
+        run: npm install --legacy-peer-deps
 
       - name: Run unit tests
         run: npm test
@@ -45,3 +34,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Deploy to server
+        run: |
+          # Add your deployment commands here
+          echo "Deploying the application..."
